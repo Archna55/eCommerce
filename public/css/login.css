@@ -1,0 +1,40 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.frm_container {
+    height: auto;
+    margin-top: 20% !important;
+}
+
+.image {
+    height: 100%;
+    background-image: url('../images/onlineshop.jpeg');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+
+.text_container {
+    height: 30vh;
+    position: absolute;
+    top: 40%;
+    margin-left: 6%;
+    margin-right: 6%;
+}
+
+.social {
+    height: 6vh;
+}
+
+.social img {
+    height: 5vh;
+}
+
+.signup_img {
+    height: 100%;
+    background-image: url('../images/online_shopping.jpeg');
+    background-size: contain;
+    background-repeat: no-repeat;
+}

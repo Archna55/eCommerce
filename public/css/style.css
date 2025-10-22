@@ -1,0 +1,147 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.slider {
+    height: 100vh;
+    background-size: cover;
+}
+
+.slide_content_container {
+    background: rgb(0, 0, 0);
+    background: rgba(0, 0, 0, 0.4);
+    height: 230px;
+    width: 35%;
+    text-align: center;
+    padding: 20px;
+    margin-top: 18% !important;
+    left: 34%;
+}
+
+.navbar {
+    z-index: 9;
+}
+
+.nav-category {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 100vw;
+    display: none;
+    padding: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 9;
+}
+
+.nav-category.show {
+    display: flex;
+}
+
+.navbar-scroll {
+    background: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Navbar when scrolled */
+.navbar-scrolled {
+    background-color: white !important;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-scrolled .nav-link {
+    color: #000 !important;
+}
+
+.navbar-scrolled .fa-magnifying-glass {
+    color: #000 !important;
+}
+
+.navbar-scrolled .navbar-brand {
+    color: #dc3545 !important;
+}
+
+.search-bar {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateY(-100%);
+    transition: transform 0.4s ease;
+    z-index: 999;
+}
+
+.search-bar.active {
+    transform: translateX(0%);
+}
+
+.search-bar input {
+    width: 60%;
+    padding: 10px 20px;
+    border-radius: 25px;
+    border: 1px solid #ccc;
+    outline: none;
+}
+
+.search-bar input:focus {
+    box-shadow: none;
+}
+
+.nav-category ul {
+    list-style: none;
+    text-align: center;
+}
+.nav-category ul li {
+    font-size: 1.1rem;
+}
+
+.product_box {
+    height: auto;
+}
+
+.product_img {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center; 
+    height: 320px;
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 30px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+#logout .dropdown-menu {
+    position: absolute !important;
+    left: 93% !important;
+    top: 57% !important;
+    padding: 0% !important;
+    border-radius: 0%;
+    --bs-dropdown-min-width: 90px !important;
+}
+
+
+#logout ul li a {
+    text-align: center !important;
+}
+
+.social-logo {
+    height: 30px;
+    width: 30px;
+    margin: 0 5px;
+}
+.social-logo img {
+    width: 25px;
+    height: 25px;
+    object-fit: cover;
+    border-radius: 50%;
+}
