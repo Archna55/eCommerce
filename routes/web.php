@@ -48,4 +48,11 @@ Route::get('/about', function () {
 Route::get('/blog', function () {
     return view('blog');
 })->name('blog');
+Route::get('/cart', function () {
+    return view('cart');
+})->name('cart');
 
+
+Route::get('/login', function () {
+    return view('login');
+})->name('login');

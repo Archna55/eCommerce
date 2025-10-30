@@ -35,13 +35,10 @@
                       </div>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link text-light mx-2" href="/cart"><i class="fa-solid fa-cart-shopping fs-5"></i></a>
+                      <a class="nav-link text-light mx-2" href="{{ route('cart') }}"><i class="fa-solid fa-cart-shopping fs-5"></i></a>
                     </li>
                     <li class="nav-item" id="logout">
-                      <a class="nav-link dropdown-toggle text-light mx-2" href="#" id="accountDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">{{ Auth::user()->full_name }}</a>
-                      <ul class="dropdown-menu border" aria-labelledby="accountDropdown">
-                        <li><a class="dropdown-item" href="{{ route('account.logout') }}">Logout</a></li>
-                      </ul>
+                        <a class="nav-link text-light mx-2" href="{{ route('login') }}"><i class="fa-solid fa-user fs-5"></i></a>
                     </li>
                   </ul>
                 </div>

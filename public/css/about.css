@@ -1,0 +1,49 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.bookmark .container {
+    font-size: 1.15rem;
+}
+
+.about {
+    font-size: 1.15rem;
+    text-indent: 5em;
+}
+
+.team-member {
+    height: 550px;
+}
+
+.team-member img {
+    height: 100%;
+    width: 100%;
+    border-radius: 2%;
+}
+
+.founders {
+    justify-content: center;
+    height: 670px;
+}
+
+.fa-sack-dollar, .fa-truck, .fa-headset {
+    font-size: 4rem;
+}
+
+.persons {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+}
+
+.reviewContainer {
+    width: 380px !important;
+}
+
+.review {
+    text-indent: 1.5rem;
+    text-align: left;
+}
