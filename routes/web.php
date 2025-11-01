@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\admin\LoginController as AdminLoginController;
 use App\Http\Controllers\admin\DashboardController as AdminDashboardController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DashboardController;
 
@@ -48,9 +49,7 @@ Route::get('/about', function () {
 Route::get('/blog', function () {
     return view('blog');
 })->name('blog');
-Route::get('/cart', function () {
-    return view('cart');
-})->name('cart');
+Route::get('/cart', CartController::class . '@index')->name('cart');
 
 
 Route::get('/login', function () {

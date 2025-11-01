@@ -1,0 +1,23 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.cart_container {
+    height : 600px;
+}
+
+.item_info {
+    height: 550px;
+    width: 550px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.item_info img {
+    height: 450px;
+    width: 450px;
+    object-fit: contain;
+}

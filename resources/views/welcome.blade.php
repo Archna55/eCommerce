@@ -38,11 +38,7 @@
                       <a class="nav-link text-light mx-2" href="{{ route('cart') }}"><i class="fa-solid fa-cart-shopping fs-5"></i></a>
                     </li>
                     <li class="nav-item" id="logout">
-<<<<<<< HEAD
                         <a class="nav-link text-light mx-2" href="{{ route('login') }}"><i class="fa-solid fa-user fs-5"></i></a>
-=======
-                      <a class="nav-link text-light mx-2" href="/cart"><i class="fa-solid fa-user fs-5"></i></a>
->>>>>>> 23d36060068fd89abc51d92aaec8e8348c8a19e4
                     </li>
                   </ul>
                 </div>
