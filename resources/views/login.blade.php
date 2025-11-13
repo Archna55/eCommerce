@@ -31,7 +31,7 @@
               <i class="fa-solid fa-arrow-left fs-5"></i></button
           ></a>
           <div class="text-center w-100">
-            <a class="navbar-brand text-danger fs-3 fw-semibold" href="#"
+            <a class="navbar-brand text-danger fs-3 fw-semibold" href="{{ route('home') }}"
               >Ecommerce</a
             >
           </div>

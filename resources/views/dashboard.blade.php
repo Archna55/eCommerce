@@ -21,7 +21,7 @@
                       <a class="nav-link text-light mx-2" href="{{ route('home') }}" id="category">Categories <i class="fa-solid fa-chevron-down fs-5"></i></a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link text-light mx-2" href="{{ route('blog') }}">Blog</a>
+                      <a class="nav-link text-light mx-2" href="{{ route('shop') }}">Shop</a>
                     </li>
                   </ul>
                   <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
@@ -35,10 +35,18 @@
                       </div>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link text-light mx-2" href="/cart"><i class="fa-solid fa-cart-shopping fs-5"></i></a>
+                      <a class="nav-link text-light mx-2" href="{{ route('wishlist') }}"><i class="fa-solid fa-heart fs-5"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <div class="cart_count d-flex">
+                            <a class="nav-link text-light ms-2 pe-1" href="{{ route('cart') }}"><i class="fa-solid fa-cart-shopping fs-5"></i></a>
+                            @if (!empty($cartCount) && $cartCount > 0)
+                            <span class="text-light fw-semibold float-end me-2">{{ $cartCount }}</span>
+                            @endif
+                        </div>
                     </li>
                     <li class="nav-item" id="logout">
-                      <a class="nav-link dropdown-toggle text-light mx-2" href="#" id="accountDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">{{ Auth::user()->full_name }}</a>
+                      <a class="nav-link dropdown-toggle fw-semibold text-light mx-2" href="#" id="accountDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">{{ Auth::user()->full_name }}</a>
                       <ul class="dropdown-menu border" aria-labelledby="accountDropdown">
                         <li><a class="dropdown-item" href="{{ route('account.logout') }}">Logout</a></li>
                       </ul>
@@ -258,7 +266,7 @@
                 <div class="category_name">
                     <div class="fw-semibold fs-4">Electronic Gadgets</div>
                 </div>
-                <div class="product_img rounded-2 rounded-bottom-0" style="background-image: url('{{ asset("images/electronics.jpeg") }}');"></div>  
+                <div class="product_img rounded-2 rounded-bottom-0" style="background-image: url('{{ asset('images/electronics.jpeg') }}')"></div>  
                 <div class="Product_details py-2 d-flex justify-content-center">
                     <button class="btn btn-danger btn-sm">View More</button>
                 </div>

@@ -9,7 +9,7 @@ class CartController extends Controller
 {
     public function index()
     {
-        $cartItems = Cart::instance('cart')->content();
-        return view('cart', compact('cartItems'));
+        $cartCount = Cart::instance('cart')->content();
+        return view('cart', compact('cartCount'));
     }
 }

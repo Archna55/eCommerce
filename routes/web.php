@@ -6,6 +6,7 @@ use App\Http\Controllers\admin\DashboardController as AdminDashboardController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\WishlistController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -46,10 +47,14 @@ Route::group(['prefix' => 'account'], function () {
 Route::get('/about', function () {
     return view('about');
 })->name('about');
-Route::get('/blog', function () {
-    return view('blog');
-})->name('blog');
+Route::get('/shop', function () {
+    return view('shop');
+})->name('shop');
 Route::get('/cart', CartController::class . '@index')->name('cart');
+Route::get('/wishlist', function () {
+    return view('wishlist');
+})->name('wishlist');
+// Route::post('/wishlist/add', WishlistController::class . 'add_to_wishlist')->name('wishlist.add');
 
 
 Route::get('/login', function () {

@@ -54,6 +54,10 @@
     color: #000 !important;
 }
 
+.navbar-scrolled .cart_count span {
+    color: #000 !important;
+}
+
 .navbar-scrolled .fa-magnifying-glass {
     color: #000 !important;
 }
@@ -101,6 +105,10 @@
     font-size: 1.1rem;
 }
 
+.fa-chevron-down, .fa-chevron-down::before {
+    font-size: 1rem;
+}
+
 .product_box {
     height: auto;
 }
@@ -145,3 +153,4 @@
     object-fit: cover;
     border-radius: 50%;
 }
+

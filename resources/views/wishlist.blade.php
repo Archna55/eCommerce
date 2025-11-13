@@ -20,7 +20,7 @@
                       <a class="nav-link text-dark mx-2" href="{{ route('home') }}" id="category">Categories <i class="fa-solid fa-chevron-down fs-5"></i></a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link text-dark mx-2" href="{{ route('Shop') }}">Shop</a>
+                      <a class="nav-link text-dark mx-2" href="{{ route('shop') }}">Shop</a>
                     </li>
                   </ul>
                   <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
@@ -97,11 +97,10 @@
                     <h2 class="text-center">
                         <span class="text-center py-3 m-3 border-bottom">Your Shopping Cart</span>
                     </h2>
-                    @if ($cartCount->count() > 0)
-                    @foreach ($cartCount as $product)
+                    @if ($wishlist->count() > 0)
                         <div class="cart_item d-flex justify-content-between align-items-center border-bottom p-3">
                             <div class="item_info d-flex align-items-center">
-                                <img loading="lazy" src="{{ asset('images') }}/{{ $product->image) }}" alt="{{ $product->name }}" class="me-3" style="width: 100px; height: 100px;">
+                                <img src="{{ asset('images') }}/{{ $product->image }}" alt="{{ $product->name }}" class="me-3" style="width: 100px; height: 100px;">
                                 <div>
                                     <h5>{{ $product->name }}</h5>
                                     <p class="mb-0">Price: ${{ $product->price }}</p>
@@ -112,7 +111,6 @@
                                 <button class="btn btn-danger">Remove</button>
                             </div>
                         </div>
-                    @endforeach
                     @else
                         <div class="cart_item d-flex justify-content-center align-items-center p-3">
                             <div class="item_info d-flex justify-content-center align-items-center">

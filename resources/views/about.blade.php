@@ -20,7 +20,7 @@
                       <a class="nav-link text-dark mx-2" href="{{ route('home') }}" id="category">Categories <i class="fa-solid fa-chevron-down fs-5"></i></a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link text-dark mx-2" href="{{ route('blog') }}">Blog</a>
+                      <a class="nav-link text-dark mx-2" href="{{ route('shop') }}">Shop</a>
                     </li>
                   </ul>
                   <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
@@ -32,6 +32,9 @@
                         <input type="text" placeholder="Search Here..." class="search form-control border-0 border border-bottom border-2 ps-1 rounded-0">
                         <span class="close-btn" id="closeSearch">&times;</span>
                       </div>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link text-dark mx-2" href="/wishlist"><i class="fa-solid fa-heart fs-5"></i></a>
                     </li>
                     <li class="nav-item">
                       <a class="nav-link text-dark mx-2" href="{{ route('cart') }}"><i class="fa-solid fa-cart-shopping fs-5"></i></a>
