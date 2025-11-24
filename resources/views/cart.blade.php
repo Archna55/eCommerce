@@ -1,4 +1,4 @@
-@extends('component.layout-main')
+@extends('layouts.layout-main')
 
 @section('header')
     <nav class="container-fluid position-fixed top-0 navbar navbar-expand-lg navbar-scroll">

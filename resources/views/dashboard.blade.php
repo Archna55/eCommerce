@@ -1,4 +1,4 @@
-@extends('component.layout-main')
+@extends('layouts.layout-main')
 
 @section('header')
     <div class="slider" style="background-image: url('{{ asset("images/crousel1.png") }}')">
