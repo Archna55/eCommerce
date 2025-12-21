@@ -49,7 +49,7 @@
             </div>
             <div class="form_container w-50 m-3">
               <h3 class="text-center m-3 p-2">Register Here</h3>
-              <form action="{{ route('account.processRegistration') }}" method="POST">
+              <form action="{{ route('register') }}" method="POST">
                 @csrf
                 <div class="input_container d-flex justify-content-between m-3">
                   <div class="input_container w-100 me-2">
@@ -58,10 +58,10 @@
                       type="text"
                       class="form-control w-100"
                       placeholder="Full Name"
-                      name="full_name"
-                      id="full_name"
+                      name="name"
+                      id="name"
                     />
-                    @error('full_name')
+                    @error('name')
                       <div class="text-danger">{{ $message }}</div>
                     @enderror
                   </div>
@@ -122,7 +122,7 @@
                     <button type="submit" class="btn btn-danger">Sign Up</button>
                   </div>
                   <div class="input_container w-100">
-                    <a href="{{ route('account.login') }}" class="btn btn-danger float-end" >Login</a>
+                    <a href="{{ route('login') }}" class="btn btn-danger float-end" >Login</a>
                   </div>
                 </div>
               </form>

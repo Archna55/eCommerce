@@ -1,110 +1,7 @@
-@extends('layouts.layout-main')
+@extends('layouts.app')
 
-@section('header')
-    <div class="slider" style="background-image: url('{{ asset("images/crousel1.png") }}')">
-        <nav class="container-fluid position-fixed top-0 navbar navbar-expand-lg navbar-scroll">
-            <div class="container-fluid">
-              <a class="navbar-brand text-danger fs-3 fw-semibold" href="{{ route('home') }}">Ecommerce</a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse d-flex justify-content-between w-75" id="navbarTogglerDemo01">
-                <div class="d-flex justify-content-evenly w-100">
-                  <ul class="navbar-nav ms-3 me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                      <a class="nav-link text-light mx-2" aria-current="page" href="{{ route('home') }}">Home</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link text-light mx-2" href="{{ route('about') }}">About</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link text-light mx-2" href="{{ route('home') }}" id="category">Categories <i class="fa-solid fa-chevron-down fs-5"></i></a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link text-light mx-2" href="{{ route('shop') }}">Shop</a>
-                    </li>
-                  </ul>
-                  <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                    <li class="nav-item d-flex">
-                      <button class="btn btn-link fs-5" id="searchBtn">
-                        <i class="fa-solid fa-magnifying-glass fs-5 text-light"></i>
-                      </button>
-                      <div class="search-bar d-flex" id="searchBar">
-                        <input type="text" placeholder="Search Here..." class="search form-control border-0 border border-bottom border-2 ps-1 rounded-0">
-                        <span class="close-btn" id="closeSearch">&times;</span>
-                      </div>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link text-light mx-2" href="{{ route('wishlist') }}"><i class="fa-solid fa-heart fs-5"></i></a>
-                    </li>
-                    <li class="nav-item">
-                        <div class="cart_count d-flex">
-                            <a class="nav-link text-light ms-2 pe-1" href="{{ route('cart') }}"><i class="fa-solid fa-cart-shopping fs-5"></i></a>
-                            @if (!empty($cartCount) && $cartCount > 0)
-                            <span class="text-light fw-semibold float-end me-2">{{ $cartCount }}</span>
-                            @endif
-                        </div>
-                    </li>
-                    <li class="nav-item" id="logout">
-                      <a class="nav-link dropdown-toggle fw-semibold text-light mx-2" href="#" id="accountDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">{{ Auth::user()->full_name }}</a>
-                      <ul class="dropdown-menu border" aria-labelledby="accountDropdown">
-                        <li><a class="dropdown-item" href="{{ route('account.logout') }}">Logout</a></li>
-                      </ul>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-        </nav>
-        <div class="slide_content_container position-absolute rounded">
-            <p class="fw-bold fs-3 text-light p-2">Shop the latest trends today!</p>
-            <p class=" fs-5 text-light p-2">New Addition to sale</p>
-            <button type="button" class="btn btn-danger">Shop Now</button>
-        </div>
-    </div>
-    <div class="nav-category w-100 justify-content-evenly bg-light" id="nav-category">
-        <ul>            
-            <li class=" text-danger fs-4 fw-semibold">Women</li>
-            <li>Saree</li>
-            <li>Suit</li>
-            <li>Kurti</li>
-            <li>Langha</li>
-        </ul>
-        <ul>
-            <div class="list-group-item border-0 text-danger fs-4 fw-semibold">Men</div>
-            <li>Shirt</li>
-            <li>Suit</li>
-            <li>Kurta</li>
-            <li>Jackets</li>
-            <li>Jeans</li>
-        </ul>
-        <ul>
-            <div class="list-group-item border-0 text-danger fs-4 fw-semibold">Electric Gadgets</div>
-            <li>Laptop</li>
-            <li>Mouse</li>
-            <li>Desktop</li>
-            <li>Keyboard</li>
-            <li>Pen Drive</li>
-        </ul>
-        <ul>
-            <div class="list-group-item border-0 text-danger fs-4 fw-semibold">Furniture</div>
-            <li>Chair</li>
-            <li>Table</li>
-            <li>Almirah</li>
-            <li>Sofa</li>
-        </ul>
-        <ul>
-            <div class="list-group-item border-0 text-danger fs-4 fw-semibold">Home Decor & essentials</div>
-            <li>Kitchen Set</li>
-            <li>Canvas</li>
-            <li>Bay Leaf Decor</li>
-            <li>Wooden Name Plate</li>
-        </ul>
-    </div>
-
-@endsection
-
-@section('main_container')
+@section('content')
+<main>
     <!-- New Arrivals -->
     <section>
         <div class=" heading pt-4">
@@ -300,58 +197,47 @@
             </div>
         </div>
     </section>
-
+</main>
 @endsection
 
-@section('footer')
-    <div class="footer bg-dark text-light p-3">
-        <div class="special_customers text-center">
-            <span class="fs-4 fw-bold">Make Yourself Our Special Customer</span>
-            <div class="sp_cust_input m-3">
-                <input type="email" class="form-control w-25 d-inline" placeholder="Enter Your Email" name="" id="">
-                <button class="btn btn-danger mx-2 mb-1">Verify Now</button>
-            </div>
-        </div>
-        <div class="footer_container d-flex justify-content-evenly w-75 m-auto">
-            <div class="footer-1 w-25">
-                <p class="text-danger fw-semibold fs-4 mb-1">Ecommerce</p>
-                <span class="fs-smaller lh-0">Ecommerce is here to make your busy schedule easier and flexible for shopping. Take one-more step and place order, get delivery at home.</span>
-            </div>
-            <div class="footer-2">
-                <div class="list-group">
-                    <p class="fs-5 fw-bold mb-1"><span>Links</span></p>
-                    <a href="#" class="text-light text-decoration-none"><span>Categories</span></a>
-                    <a href="#" class="text-light text-decoration-none"><span>Shop</span></a>
-                    <a href="login.html" class="text-light text-decoration-none"><span>Login</span></a>
-                    <a href="cart.html" class="text-light text-decoration-none"><span>Cart</span></a>
-                </div>
-            </div>
-            <div class="footer-3">
-                <div class="list-group">
-                    <p class="fs-5 fw-bold mb-1">Customer Service</p>
-                    <a href="#" class="text-light text-decoration-none"><span>Contact US</span></a>
-                    <a href="#" class="text-light text-decoration-none"><span>FAQs</span></a>
-                    <a href="#" class="text-light text-decoration-none"><span>Placed Orders</span></a>
-                    <a href="#" class="text-light text-decoration-none"><span>Help</span></a>
-                </div>
-            </div>
-            <div class="footer-3">
-                <p class="fs-5 fw-bold mb-1">Our Info</p>
-                <div class="list-group">
-                    <span><i class="fa-regular fa-envelope"></i> archna25203@gamil.com</span>
-                    <span><i class="fa-solid fa-phone"></i> +91 867XXXXXXX</span>
-                    <span>
-                        <a href="https://www.facebook.com/" class="social-logo"><img src="{{ asset('images/facebook.png') }}" alt="facebook"></a>
-                        <a href="https://www.instagram.com" class="social-logo"><img src="{{ asset('images/instagram.png') }}" alt="instagram"></a>
-                        <a href="https://www.whatsapp.com" class="social-logo"><img src="{{ asset('images/whatsapp.png') }}" alt="whatsapp"></a>
-                        <a href="https://www.pintrest.com" class="social-logo"><img src="{{ asset('images/pinterest.png') }}"alt="pintrest"></a>
-                    </span>
-                </div>
-            </div>
-        </div>
-        <hr>
-        <div class="bottom_line">
-            <p class="text-center mb-0">&copy; All rights are reserved</p>
-        </div>
-    </div>
-@endsection
+@push('scripts')
+    <script>
+        const categoryLink = document.getElementById('category');
+        const navCategory = document.getElementById('nav-category');
+
+        // Show nav-category on hover
+        categoryLink.addEventListener('mouseenter', () => {
+            navCategory.classList.add('show');
+        });
+
+        navCategory.addEventListener('mouseleave', () => {
+            navCategory.classList.remove('show');
+        });
+
+        // Show nav-category even when scrolled
+        let navbar = document.querySelector('.navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('navbar-scrolled');
+            } else {
+             navbar.classList.remove('navbar-scrolled');
+            }
+        });
+        // Search bar functionality
+      // ...existing code...
+      const searchBtn = document.getElementById('searchBtn');
+      const closeSearch = document.getElementById('closeSearch');
+      const searchBar = document.getElementById('searchBar');
+
+      if (searchBtn && closeSearch && searchBar) {
+        searchBtn.addEventListener('click', () => {
+          searchBar.classList.add('active');
+        });
+
+        closeSearch.addEventListener('click', () => {
+          searchBar.classList.remove('active');
+        });
+      }
+      // ...existing code...
+    </script>
+@endpush

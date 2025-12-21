@@ -99,7 +99,7 @@
               </form>
               <p class="text-center">
                 Do'not have an account?
-                <a href="{{ route('account.register') }}" class="text-decoration-none"
+                <a href="{{ route('register') }}" class="text-decoration-none"
                   >Register Yourself</a
                 >
               </p>

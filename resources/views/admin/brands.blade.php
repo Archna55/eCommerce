@@ -1,57 +1,14 @@
 @extends('layouts.admin')
 
-@section('header')
-        <nav class="container-fluid position-fixed top-0 navbar navbar-expand-lg navbar-scroll">
-            <div class="container-fluid">
-              <a class="navbar-brand text-danger fs-3 mx-4 fw-semibold" href="{{ route('home') }}">Ecommerce</a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse d-flex justify-content-between w-75" id="navbarTogglerDemo01">
-                <div class="d-flex justify-content-evenly w-100">
-                  <ul class="navbar-nav ms-5 me-auto mb-2 mb-lg-0">
-                    <!-- <li class="nav-item">
-                      <i class="fa-solid fa-list fs"></i>
-                    </li> -->
-                    <li class="nav-item">
-                      <input type="text" class="search rounded-5 px-3 fst-italic" placeholder="Search...">
-                    </li>
-                  </ul>
-                  <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                    <!-- <li class="nav-item d-flex">
-                      <button class="btn btn-link fs-5" id="searchBtn">
-                        <i class="fa-solid fa-magnifying-glass fs-5"></i>
-                      </button>
-                      <div class="search-bar d-flex" id="searchBar">
-                        <input type="text" placeholder="Search Here..." class="search form-control border-0 border border-bottom border-2 ps-1 rounded-0">
-                        <span class="close-btn" id="closeSearch">&times;</span>
-                      </div>
-                    </li> -->
-                    <li class="nav-item">
-                      <a class="notification nav-link rounded-5 mx-2" href="{{ route('wishlist') }}"><i class="fa-solid fa-bell fs-5"></i></a>
-                    </li>
-                    <li class="nav-item" id="logout">
-                      <a class="nav-link text-light dropdown-toggle fw-semibold mx-2" href="#" id="accountDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">{{ Auth::guard('admin')->user()->full_name }}</a>
-                      <ul class="dropdown-menu border" aria-labelledby="accountDropdown">
-                        <li><a class="dropdown-item" href="{{ route('admin.logout') }}">Logout</a></li>
-                      </ul>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-        </nav>
-
-@endsection
-
 @section('admin_container')
+<main>
   <div class="admin_sidebar fs-5 text-light">
     <ul>
-      <li class="d-flex justify-content-start align-items-center">
+      <a href="{{ route('admin.dashboard') }}" class="text-light text-decoration-none"><li class="d-flex justify-content-start align-items-center">
         <img src="{{ asset('images/dashboard-svgrepo-com.png') }}" class="sidebar_img" alt="Dashboard Icon">  
         <span>Dashboard</span>
-      </li>
-      <a href="{{ route('admin.brands') }}"><li class="d-flex justify-content-start align-items-center">
+      </li></a>
+      <a href="{{ route('admin.brands') }}" class="text-light text-decoration-none"><li class="d-flex justify-content-start align-items-center">
         <img src="{{ asset('images/money.png') }}" class="sidebar_img" alt="Product Icon">  
         <span>Brands</span>
       </li></a>
@@ -63,10 +20,10 @@
         <img src="{{ asset('images/report-svgrepo-com.png') }}" class="sidebar_img" alt="Product Icon">  
         <span>Report</span>
       </li>
-      <li class="d-flex justify-content-start align-items-center">
+      <a href="{{ route('admin.categories') }}" class="text-light text-decoration-none"><li class="d-flex justify-content-start align-items-center">
         <img src="{{ asset('images/category-svgrepo-com.png') }}" class="sidebar_img" alt="Product Icon">  
         <span>Categories</span>
-      </li>
+      </li></a>
       <li class="d-flex justify-content-start align-items-center">
         <img src="{{ asset('images/activity-svgrepo-com.png') }}" class="sidebar_img" alt="Product Icon">  
         <span>Activity</span>
@@ -84,11 +41,95 @@
 
   <div class="admin_main_container p-4">
     <div class="dashboard_cards d-flex justify-content-between mb-4 mt-5 pt-3">
-        <h2>Brands Management</h2>
+        <h3>Brands</h3>
+        <ul class="breadcrumbs list-unstyled w-25 d-flex justify-content-end align-items-center">
+          <li><a href="{{ route('admin.dashboard') }}" class="text-decoration-none"><span class="text-tiny">Dashboard&nbsp;</span></a></li>
+          <li><span class="text-tiny">> Brands</span></li>
+        </ul>
+    </div>
+    <div class="brand_content">
+      <div class="d-flex justify-content-between">
+        <form class="form-search">
+          <fieldset>
+            <input type="text" class="search rounded-5 px-3 fst-italic" name="name" tabindex="2" value="" aria-required="
+            true" placeholder="Search Brands...">
+          </fieldset>
+        </form>
+        <button class="btn btn-primary">
+          <a href="{{ route('admin.add.brand') }}" class="text-light text-decoration-none">Add Brand</a>
+        </button>
+      </div>
+      <div class="brand_table mt-4">
+        @if (Session::has('status'))
+          <p class="alert alert-success">{{ Session::get('status') }}</p>
+        @endif
+        <table class="table table-hover table-bordered">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Brand Name</th>
+              <th scope="col">Brand Slug</th>
+              <th scope="col">Products</th>
+              <th scope="col">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            @foreach ($brands as $brand)
+              <tr>
+                <td scope="row">{{ $brand->id }}</td>
+                <td>
+                  <img src="{{ asset('images/brands') }}/{{ $brand->image }}" class="brand_image" alt="{{ $brand->name }}">
+                  <a href="#" class="text-decoration-none">{{ $brand->name }}</a>
+                </td>
+                <td>{{ $brand->slug }}</td>
+                <td><a href="#" target="_blank" class="text-decoration-none">0</a></td>
+                <td>
+                  <div class="d-flex m-3">
+                    <a href="{{ route('admin.edit.brand', ['id' => $brand->id]) }}" class="btn btn-sm btn-warning m-3 text-light"><i class="fa-solid fa-edit"></i>Edit</a>
+                    <form action="{{ route('admin.delete.brand', ['id' => $brand->id]) }}" method="POST">
+                      @csrf
+                      @method('DELETE')
+                      <button type="button" class="btn btn-sm btn-danger m-3 delete"><i class="fa-solid fa-trash"></i> Delete</button>
+                    </form>
+                  </div>
+                </td>
+              </tr>
+            @endforeach
+          </tbody>
+        </table>
+      </div>
+      <div class="divider"></div>
+      <div class="flex items-center justify-between flex-wrap gap10 mt-4 brand-pagination">
+        {{ $brands->links('pagination::bootstrap-5') }}
+      </div>
     </div>
   </div>
+</main>
 @endsection
 
-@section('footer')
+@push('scripts')
+  <script>
+    $(function() {
+      $(document).on('click', '.delete', function(e) {
+        e.preventDefault();
+        const form = $(this).closest('form');
+        if (!form.length) return;
 
-@endsection
+        Swal.fire({
+          title: 'Are you sure?',
+          text: 'Once deleted, you will not be able to recover this brand!',
+          icon: 'warning',
+          showCancelButton: true,
+          cancelButtonColor: '#6c757d',
+          cancelButtonText: 'Cancel',
+          confirmButtonColor: '#dc3545',
+          confirmButtonText: 'Delete'
+        }).then((result) => {
+          if (result.isConfirmed) {
+            form.submit();
+          }
+        });
+      });
+    });
+  </script>
+@endpush

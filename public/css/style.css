@@ -5,6 +5,7 @@
 
 .slider {
     height: 100vh;
+    background-image: url('{{ asset("images/crousel1.png") }}');
     background-size: cover;
 }
 
@@ -128,18 +129,23 @@
     cursor: pointer;
 }
 
-#logout .dropdown-menu {
+.dropdown .dropdown-menu {
     position: absolute !important;
-    left: 93% !important;
-    top: 57% !important;
+    left: 25% !important;
+    top: 60% !important;
     padding: 0% !important;
     border-radius: 0%;
-    --bs-dropdown-min-width: 90px !important;
+    --bs-dropdown-min-width: 70px !important;
 }
 
 
-#logout ul li a {
+.dropdown .dropdown-menu .dropdown-item {
     text-align: center !important;
+    padding: 2px 5px !important;
+}
+
+.footer {
+    z-index: 9;
 }
 
 .social-logo {

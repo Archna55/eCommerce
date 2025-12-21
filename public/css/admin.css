@@ -121,3 +121,133 @@
 .beauty:hover {
     box-shadow: 0px 0px 15px 2px #9966FF;
 }
+
+.admin_main_container {
+    background-color: rgba(139, 154, 168, 0.2);
+}
+
+.table thead {
+    background-color: #4c5c6d;
+    color: white;
+}
+
+.brand_image {
+    width: 120px;
+    height: 80px;
+    object-fit: contain;
+}
+
+.brand_img {
+    width: 100%;
+    height: 250px;
+}
+
+.product_img {
+    width: 100%;
+    height: 210px;
+}
+
+.brand_input, .product_input {
+    height: 100%;
+    width: 100%;
+    border: 2px dashed #71b8ff;
+}
+
+.fa-cloud-arrow-up {
+    font-size: 6rem;
+    color: #71b8ff;
+    cursor: pointer;
+}
+
+.product_input .fa-cloud-arrow-up {
+    font-size: 4rem;
+    color: #71b8ff;
+    cursor: pointer;
+}
+
+#preview_container {
+    display: none;
+}
+
+#p_preview_container {
+    display: none;
+}
+
+#g_preview_container {
+    display: none;
+}
+
+#p_previewImage {
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto; 
+    width: 100%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#g_previewImage {
+    max-width: 100%;
+    height: 250px;
+    display: flex !important;
+    background-size: contain;
+}
+
+.gitems {
+    display: flex;
+    margin: 5px;
+}
+
+.gitems img {
+    width: 265px;
+    height: 210px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+#previewImage img {
+    height: 210px;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+}
+
+#p_previewImage img {
+    height: 190px;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+}
+
+.visible {
+    display: block !important;
+}
+
+.dropdown-select {
+    width: 100%;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    font-size: 16px;
+    color: #333;
+}
+
+
+#logout ul {
+    position: absolute !important;
+    left: 94% !important;
+    top: 60% !important;
+    padding: 0% !important;
+    border: 0.5px solid #cecece;
+    border-radius: 0%;
+    width: 70px !important;
+    --bs-dropdown-min-width: 70px !important;
+}
+
+
+#logout ul li a {
+    text-align: center !important;
+    padding: 2px 5px !important;
+}
