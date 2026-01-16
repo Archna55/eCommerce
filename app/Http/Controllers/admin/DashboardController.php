@@ -10,8 +10,10 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\File;
-// use Intervention\Image\Laravel\Facades\Image;
 use Intervention\Image\Laravel\Facades\Image;
+use App\Models\Order;
+use App\Models\OrderItem;
+use App\Models\Transaction;
 
 class DashboardController extends Controller
 {
@@ -173,10 +175,10 @@ class DashboardController extends Controller
         $request->validate([
             'name' => 'required',
             'slug' => 'required|unique:products,slug',
-            'regular_price' => 'required|numeric',
-            'sale_price' => 'nullable|numeric',
+            'regular_price' => 'nullable|numeric',
+            'sale_price' => 'required|numeric',
             'SKU' => 'required',
-            'quantity' => 'required|numeric',
+            'quantity' => 'required|integer|min:1',
             'category_id' => 'required',
             'brand_id' => 'required',
             'featured' => 'required',
@@ -219,7 +221,7 @@ class DashboardController extends Controller
                     $gfileName = $current_timestemp . "-" . $counter . '.' . $gextension;
                     $this->GenerateProductThumbailsImage($file, $gfileName);
                     array_push($gallery_arr, $gfileName);
-                    $counter = $counter++;
+                    $counter++;
                 }
             }
             $gallery_images = implode(",", $gallery_arr);
@@ -290,7 +292,7 @@ class DashboardController extends Controller
         $gallery_arr = array();
         $gallery_images = "";
         $counter = 1;
-        if ($request->hasFile('gallery')) {
+        if ($request->hasFile('images')) {
             foreach (explode(',', $product->images) as $imge) {
                 if (File::exists(public_path('images/products/' . $imge))) {
                     File::delete(public_path('images/products/' . $imge));
@@ -336,5 +338,17 @@ class DashboardController extends Controller
         }
         $product->delete();
         return redirect()->route('admin.products')->with('status', 'Product has been deleted successfully!');
+    }
+
+    public function orders () {
+        $orders = Order::orderBy('id', 'DESC')->paginate(10);
+        return view('admin.orders', compact('orders'));
+    }
+
+    public function order_details ($order_id) {
+        $order = Order::find($order_id);
+        $orderItems = OrderItem::where('order_id', $order_id)->orderBy('id')->paginate(12);
+        $transactions = Transaction::where('order_id', $order_id)->first();
+        return view('admin.order-details', compact('order', 'orderItems', 'transactions'));
     }
 }

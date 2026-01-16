@@ -73,14 +73,10 @@ class RegisterController extends Controller
     }
     protected function registered(Request $request, $user)
     {
-        // 1. Log the user out immediately (since RegistersUsers logs them in automatically)
         $this->guard()->logout();
 
-        // 2. Clear their session data
         $request->session()->invalidate();
         $request->session()->regenerateToken();
-
-        // 3. Redirect to the login page with a success flash message
         return redirect()->route('login')->with('status', 'Registration successful! Please log in to continue.');
     }
     

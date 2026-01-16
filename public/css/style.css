@@ -119,6 +119,7 @@
     background-repeat: no-repeat;
     background-position: center; 
     height: 320px;
+    width: 100%;
 }
 
 .close-btn {

@@ -7,7 +7,6 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\WishlistController;
 use App\Http\Controllers\ShopController;
-use App\Http\Controllers\HomeController;
 use App\Http\Middleware\AuthAdmin;
 use Illuminate\Support\Facades\Auth;
 
@@ -17,6 +16,20 @@ Route::get('/', function () {
 
 Route::get('/shop', [ShopController::class, 'index'])->name('shop');
 Route::get('/shop/{product_slug}', [ShopController::class, 'product_details'])->name('shop.details');
+Route::get('/cart', [CartController::class, 'index'])->name('cart');
+Route::post('/cart/add', [CartController::class, 'add_to_cart'])->name('cart.add');
+Route::put('/cart/inc-qty/{rowId}', [CartController::class, 'inc_cart_qnt'])->name('qty.inc');
+Route::put('/cart/dsc-qty/{rowId}', [CartController::class, 'dsc_cart_qnt'])->name('qty.dsc');
+Route::delete('/cart/delete/{rowId}', [CartController::class, 'delete_cart'])->name('delete.cart');
+Route::delete('/cart/clear', [CartController::class, 'empty_cart'])->name('clear.cart');
+Route::get('/wishlist', [WishlistController::class, 'index'])->name('wishlist');
+Route::post('/wishlist/add', [WishlistController::class, 'add_to_wishlist'])->name('wishlist.add');
+Route::delete('/wishlist/delete/{rowId}', [WishlistController::class, 'delete_wishlist'])->name('delete.wishlist');
+Route::delete('/wishlist/clear', [WishlistController::class, 'empty_wishlist'])->name('clear.wishlist');
+Route::post('/wishlist/move-to-cart/{rowId}', [WishlistController::class, 'move_to_cart'])->name('move.to.cart');
+Route::get('/checkout', [CartController::class, 'checkout'])->name('checkout');
+Route::post('/checkout/success', [CartController::class, 'order_success'])->name('checkout.success');
+Route::get('/order/confirmed', [CartController::class, 'order_confirmed'])->name('order.confirmed');
 
 Auth::routes();
 
@@ -48,31 +61,11 @@ Route::middleware(['auth', AuthAdmin::class])->group(function () {
     Route::get('/admin/product/edit/{id}', [AdminDashboardController::class, 'product_edit'])->name('admin.edit.product');
     Route::put('/admin/product/update', [AdminDashboardController::class, 'product_update'])->name('admin.update.product');
     Route::delete('/admin/product/delete/{id}', [AdminDashboardController::class, 'product_delete'])->name('admin.delete.product');
+
+    Route::get('/admin/orders', [AdminDashboardController::class, 'orders'])->name('admin.orders');
+    Route::get('/admin/order-details/{order_id}', [AdminDashboardController::class, 'order_details'])->name('admin.order-details');
 });
-
-// For admin Only
-// Route::group(['prefix' => 'admin'], function () {
-//     // Guest Middleware Routes for unauthenticated admins
-//     Route::group(['middleware' => 'admin.guest'], function () {;
-//         Route::get('/login', [AdminLoginController::class, 'index'])->name('admin.login');
-//         Route::post('/authenticate', [AdminLoginController::class, 'authenticate'])->name('admin.authenticate');
-//     });
-    
-//     // Protected Middleware Routes for authenticated admins
-//     Route::group(['middleware' => 'admin.auth'], function () {;
-//         Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
-//         Route::get('/logout', [AdminLoginController::class, 'logout'])->name('admin.logout');
-//         Route::get('/product', [AdminDashboardController::class, 'products'])->name('admin.products');
-//         
-//     });
-// });
-
 
 Route::get('/about', function () {
     return view('about');
 })->name('about');
-Route::get('/cart', CartController::class . '@index')->name('cart');
-Route::get('/wishlist', function () {
-    return view('wishlist');
-})->name('wishlist');
-// Route::post('/wishlist/add', WishlistController::class . 'add_to_wishlist')->name('wishlist.add');

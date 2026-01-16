@@ -1,9 +1,15 @@
 @extends('layouts.app')
 
-@section('main_container')
+@section('content')
+    <style>
+        .slider {
+            height: 60px !important;
+            background-image: none !important;
+        }
+    </style>
     <!-- Bookmark -->
     <section>
-        <div class="bookmark container-fluid p-2 pt-5 mt-5">
+        <div class="bookmark container-fluid p-3">
             <div class="container d-flex">
                 <a href="{{ route('home') }}" class="text-decoration-none text-info mx-2">Home</a>
                 <span>/</span>
@@ -28,42 +34,7 @@
             </div>
         </div>
     </section>
-    
-    <!-- <section>
-        <div class="container my-5">
-            <div class="row text-center">
-                <div class="col-md-3 ">
-                    <div class="stats-box">
-                        <i class="fas fa-store fa-2x"></i>
-                        <h4>10.5k</h4>
-                        <p>Sellers active on our site</p>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="stats-box highlighted">
-                        <i class="fas fa-chart-line fa-2x"></i>
-                        <h4>33k</h4>
-                        <p>Monthly Product Sale</p>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="stats-box">
-                        <i class="fas fa-users fa-2x"></i>
-                        <h4>45.5k</h4>
-                        <p>Customers active on our site</p>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="stats-box">
-                        <i class="fas fa-dollar-sign fa-2x"></i>
-                        <h4>25k</h4>
-                        <p>Annual gross sales</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> -->
-    
+
     <section>
         <div class="container my-5">
             <h2 class="text-center mb-5">Our Founders</h2>
@@ -173,57 +144,4 @@
         </div>
     </section>
 
-@endsection
-
-@section('footer')
-    <div class="footer bg-dark text-light p-3">
-        <div class="special_customers text-center">
-            <span class="fs-4 fw-bold">Make Yourself Our Special Customer</span>
-            <div class="sp_cust_input m-3">
-                <input type="email" class="form-control w-25 d-inline" placeholder="Enter Your Email" name="" id="">
-                <button class="btn btn-danger mx-2 mb-1">Verify Now</button>
-            </div>
-        </div>
-        <div class="footer_container d-flex justify-content-evenly w-75 m-auto">
-            <div class="footer-1 w-25">
-                <p class="text-danger fw-semibold fs-4 mb-1">Ecommerce</p>
-                <span class="fs-smaller lh-0">Ecommerce is here to make your busy schedule easier and flexible for shopping. Take one-more step and place order, get delivery at home.</span>
-            </div>
-            <div class="footer-2">
-                <div class="list-group">
-                    <p class="fs-5 fw-bold mb-1"><span>Links</span></p>
-                    <a href="#" class="text-light text-decoration-none"><span>Categories</span></a>
-                    <a href="#" class="text-light text-decoration-none"><span>Shop</span></a>
-                    <a href="login.html" class="text-light text-decoration-none"><span>Login</span></a>
-                    <a href="cart.html" class="text-light text-decoration-none"><span>Cart</span></a>
-                </div>
-            </div>
-            <div class="footer-3">
-                <div class="list-group">
-                    <p class="fs-5 fw-bold mb-1">Customer Service</p>
-                    <a href="#" class="text-light text-decoration-none"><span>Contact US</span></a>
-                    <a href="#" class="text-light text-decoration-none"><span>FAQs</span></a>
-                    <a href="#" class="text-light text-decoration-none"><span>Placed Orders</span></a>
-                    <a href="#" class="text-light text-decoration-none"><span>Help</span></a>
-                </div>
-            </div>
-            <div class="footer-3">
-                <p class="fs-5 fw-bold mb-1">Our Info</p>
-                <div class="list-group">
-                    <span><i class="fa-regular fa-envelope"></i> archna25203@gamil.com</span>
-                    <span><i class="fa-solid fa-phone"></i> +91 867XXXXXXX</span>
-                    <span>
-                        <a href="https://www.facebook.com/" class="social-logo"><img src="{{ asset('images/facebook.png') }}" alt="facebook"></a>
-                        <a href="https://www.instagram.com" class="social-logo"><img src="{{ asset('images/instagram.png') }}" alt="instagram"></a>
-                        <a href="https://www.whatsapp.com" class="social-logo"><img src="{{ asset('images/whatsapp.png') }}" alt="whatsapp"></a>
-                        <a href="https://www.pintrest.com" class="social-logo"><img src="{{ asset('images/pinterest.png') }}"alt="pintrest"></a>
-                    </span>
-                </div>
-            </div>
-        </div>
-        <hr>
-        <div class="bottom_line">
-            <p class="text-center mb-0">&copy; All rights are reserved</p>
-        </div>
-    </div>
 @endsection

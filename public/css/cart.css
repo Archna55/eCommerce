@@ -5,19 +5,21 @@
 }
 
 .cart_container {
-    height : 600px;
+    height : auto;
 }
 
 .item_info {
-    height: 550px;
-    width: 550px;
+    height: auto;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .item_info img {
-    height: 450px;
-    width: 450px;
+    height: 100px;
     object-fit: contain;
+}
+
+.empty {
+    height: 250px !important;
 }

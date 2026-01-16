@@ -1,43 +1,6 @@
 @extends('layouts.admin')
 
 @section('admin_container')
-<main>
-  <div class="admin_sidebar fs-5 text-light">
-    <ul>
-      <a href="{{ route('admin.dashboard') }}" class="text-light text-decoration-none"><li class="d-flex justify-content-start align-items-center">
-        <img src="{{ asset('images/dashboard-svgrepo-com.png') }}" class="sidebar_img" alt="Dashboard Icon">  
-        <span>Dashboard</span>
-      </li></a>
-      <a href="{{ route('admin.brands') }} " class="text-light text-decoration-none"><li class="d-flex justify-content-start align-items-center">
-        <img src="{{ asset('images/money.png') }}" class="sidebar_img" alt="Product Icon">  
-        <span>Brands</span>
-      </li></a>
-      <a href="{{ route('admin.products') }}" class="text-light text-decoration-none"><li class="d-flex justify-content-start align-items-center">
-        <img src="{{ asset('images/product-sf-svgrepo-com.png') }}" class="sidebar_img" alt="Product Icon">  
-        <span>Products</span>
-      </li></a>
-      <li class="d-flex justify-content-start align-items-center">
-        <img src="{{ asset('images/report-svgrepo-com.png') }}" class="sidebar_img" alt="Product Icon">  
-        <span>Report</span>
-      </li>
-      <a href="{{ route('admin.categories') }}" class="text-light text-decoration-none"><li class="d-flex justify-content-start align-items-center">
-        <img src="{{ asset('images/category-svgrepo-com.png') }}" class="sidebar_img" alt="Product Icon">  
-        <span>Categories</span>
-      </li></a>
-      <li class="d-flex justify-content-start align-items-center">
-        <img src="{{ asset('images/activity-svgrepo-com.png') }}" class="sidebar_img" alt="Product Icon">  
-        <span>Activity</span>
-      </li>
-      <li class="d-flex justify-content-start align-items-center">
-        <img src="{{ asset('images/customers-svgrepo-com.png') }}" class="sidebar_img" alt="Product Icon">  
-        <span>Customers</span>
-      </li>
-      <li class="d-flex justify-content-start align-items-center">
-        <img src="{{ asset('images/management-svgrepo-com.png') }}" class="sidebar_img" alt="Product Icon">  
-        <span>Management</span>
-      </li>
-    </ul>
-  </div>
 
   <div class="admin_main_container p-4">
     <div class="dashboard_cards d-flex justify-content-between mb-4 mt-5 pt-3">
@@ -49,17 +12,6 @@
         </ul>
     </div>
     <div class="poduct_content">
-      <div class="d-flex justify-content-between">
-        <form class="form-search">
-          <fieldset>
-            <input type="text" class="search rounded-5 px-3 fst-italic" name="name" tabindex="2" value="" aria-required="
-              true" placeholder="Search Product...">
-          </fieldset>
-        </form>
-        <button class="btn btn-primary">
-          <a href="{{ route('admin.add.product') }}" class="text-light text-decoration-none">Add Product</a>
-        </button>
-      </div>
       <div class="w-100 d-flex justify-content-between align-items-center">
         <form action="{{ route('admin.store.product') }}" method="POST" enctype="multipart/form-data" class="mt-4 w-100">
           @csrf
@@ -266,7 +218,6 @@
       </div>
     </div>
   </div>
-</main>
 @endsection
 
 @push('scripts')

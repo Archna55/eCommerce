@@ -23,8 +23,8 @@ return new class extends Migration
             $table->text('description');
             $table->string('image')->nullable();
             $table->text('images')->nullable();
-            $table->decimal('regular_price');
-            $table->decimal('sale_price')->nullable();
+            $table->decimal('regular_price')->nullable();
+            $table->decimal('sale_price');
             $table->string('SKU');
             $table->unsignedBigInteger('quantity')->default(10);
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');

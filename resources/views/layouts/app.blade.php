@@ -20,7 +20,7 @@
   </head>
   <body>
     <header>
-      <div class="slider" style="background-image: url('{{ asset("images/crousel1.png") }}')">
+      <div class="slider">
         <nav class="container-fluid position-fixed top-0 navbar navbar-expand-lg navbar-scroll">
           <div class="container-fluid">
             <a class="navbar-brand text-danger fs-3 fw-semibold" href="{{ route('home') }}">Ecommerce</a>
@@ -45,7 +45,7 @@
                 </ul>
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                   <li class="nav-item d-flex">
-                    <button class="btn btn-link fs-5" id="searchBtn">
+                    <button class="btn btn-link fs-5" id="searchBtn" title="Search">
                       <i class="fa-solid fa-magnifying-glass fs-5 text-light"></i>
                     </button>
                     <div class="search-bar d-flex" id="searchBar">
@@ -54,14 +54,26 @@
                     </div>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link text-light mx-2" href="{{ route('wishlist') }}"><i class="fa-solid fa-heart fs-5"></i></a>
+                    <a class="nav-link text-light mx-2" href="{{ route('wishlist') }} " title="Wishlist"><i class="fa-solid fa-heart fs-5"></i>
+                      <span class="position-absolute top-5 start-85 translate-middle px-1 bg-danger border border-light rounded-circle">
+                        @if (Cart::instance('wishlist')->content()->count()>0)
+                          <span class="text-6 text-tiny">{{ Cart::instance('wishlist')->content()->count() }}</span>
+                        @endif
+                      </span>
+                    </a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link text-light mx-2" href="{{ route('cart') }}"><i class="fa-solid fa-cart-shopping fs-5"></i></a>
+                    <a class="nav-link text-light mx-2" href="{{ route('cart') }} " title="Cart"><i class="fa-solid fa-cart-shopping fs-5"></i>
+                      <span class="position-absolute top-5 start-85 translate-middle px-1 bg-danger border border-light rounded-circle">
+                        @if (Cart::instance('cart')->content()->count()>0)
+                          <span class="text-6 text-tiny">{{ Cart::instance('cart')->content()->count() }}</span>
+                        @endif
+                      </span>
+                    </a>
                   </li>
                   <li class="nav-item">
                     @guest
-                      <a class="nav-link text-light mx-2" href="{{ route('login') }}"><i class="fa-solid fa-user fs-5"></i></a>
+                      <a class="nav-link text-light mx-2" href="{{ route('login') }}" title="Login"><i class="fa-solid fa-user fs-5"></i></a>
                     @else
                       <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link text-light dropdown-toggle" href="{{ Auth::user()->role === 'admin' ? route('admin.dashboard') : route('dashboard') }}" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -126,7 +138,7 @@
             <li>Bay Leaf Decor</li>
             <li>Wooden Name Plate</li>
         </ul>
-    </div>
+      </div>
     </header>
 
     @yield('content')
